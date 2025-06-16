@@ -67,7 +67,9 @@ eerie = 2797
 ```
 <img width="508" alt="Screenshot 2025-04-18 at 15 23 36" src="https://github.com/user-attachments/assets/6a9e9689-27b7-4f04-b233-4679494b65d8" />
 
-Caveat: it doesn't work that well with words that have repeated letters. Due to how the word score is calculated, the script has a bias towards words consisting of 5 unique letters. Here's an example from 2025-06-16:
+Caveat: it doesn't work that well with words that have repeated letters. Due to how the word score is calculated, the script has a bias towards words consisting of 5 unique letters (otherwise the list of suggestions is dominated with words like `eerie` or `rarer`).
+
+Here's an example from 2025-06-16:
 ```
 ╰─$ ruby wordle.rb later=bbgyb
 later => 11 matches
