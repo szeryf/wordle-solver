@@ -65,4 +65,52 @@ ridge = 3500
 dirge = 3500
 eerie = 2797
 ```
+<img width="508" alt="Screenshot 2025-04-18 at 15 23 36" src="https://github.com/user-attachments/assets/6a9e9689-27b7-4f04-b233-4679494b65d8" />
 
+Caveat: it doesn't work that well with words that have repeated letters. Due to how the word score is calculated, the script has a bias towards words consisting of 5 unique letters. Here's an example from 2025-06-16:
+```
+╰─$ ruby wordle.rb later=bbgyb
+later => 11 matches
+
+untie = 3668
+cutie = 3570
+setup = 3458
+fetus = 3322
+fetid = 3251
+detox = 3142
+fetch = 3050
+tithe = 3016
+petty = 2748
+butte = 2705
+
+╰─$ ruby wordle.rb later=bbgyb untie=bbgby
+later => 11 matches
+untie => 4 matches
+
+detox = 3142
+fetch = 3050
+petty = 2748
+jetty = 2410
+
+╰─$ ruby wordle.rb later=bbgyb untie=bbgby detox=bggbb
+later => 11 matches
+untie => 4 matches
+detox => 3 matches
+
+fetch = 3050
+petty = 2748
+jetty = 2410
+
+╰─$ ruby wordle.rb later=bbgyb untie=bbgby detox=bggbb fetch=bggbb
+later => 11 matches
+untie => 4 matches
+detox => 3 matches
+fetch => 2 matches
+
+petty = 2748
+jetty = 2410
+```
+
+The correct solution was found in 5 steps:
+
+<img width="501" alt="image" src="https://github.com/user-attachments/assets/caeb7209-af8a-485f-a5b3-e9a0bc7aa66e" />
