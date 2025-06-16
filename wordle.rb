@@ -28,7 +28,7 @@ ARGV.each do |arg|
             words.select { |word| word.include?(letter) && word[i] != letter }
           end
       end
-    puts "#{$1} => #{words.size} matches"
+    puts "#{$1} => #{words.size} matches #{"(#{words.sort_by { score(_1, scores) }.join(", ")})" if words.size < 10}"
   else
     arg
       .split(//)
